@@ -8,10 +8,9 @@ typeset -l profile=${1:-'MINIMUM_Rechnung'} # e.g. 'minimum_rechnung'
 
 # into +rc...
 vat_percentage=19
-vat_percentage_multiplier=119
 SellerTradeParty_Name="Christian Hartmann"
-PostalTradeAddress_CountryID="DEUTSCHLAND" # is 'DE' only! ;)
-InvoiceCurrencyCode='EUR' # not used in stylesheet (as default)
+PostalTradeAddress_CountryID="DE" # default in Beispiel, but used
+InvoiceCurrencyCode='EUR' # not used in stylesheet (coz default)
 
 
 # from command line

@@ -24,23 +24,21 @@ GrandTotalAmount=${GrandTotalAmount:-$(echo "scale=2; ${TaxBasisTotalAmount} * (
 DuePayableAmount="${GrandTotalAmount}"
 
 
-# echo $GrandTotalAmount; exit
-
-# xsltproc "$xslt" "$template"
 
 # check stylesheet
 test -f "$profile.xslt" || error_exit "stylesheet not found for profile: $profile" 1
 
-# 	--stringparam '' "$" \
+# template for string params
+# 	--stringparam ''       "$" \
 
 xsltproc \
 	\
-	--stringparam 'SellerTradeParty_Name'			"$SellerTradeParty_Name" \
- 	--stringparam 'PostalTradeAddress_CountryID' 	"$PostalTradeAddress_CountryID" \
-	--stringparam 'BuyerTradeParty_Name'			"$BuyerTradeParty_Name" \
-	--stringparam 'TaxBasisTotalAmount' "$TaxBasisTotalAmount" \
-	--stringparam 'TaxTotalAmount' "$TaxTotalAmount" \
-	--stringparam 'GrandTotalAmount' "$GrandTotalAmount" \
-	--stringparam 'DuePayableAmount' "$DuePayableAmount" \
+	--stringparam 'SellerTradeParty_Name'           "$SellerTradeParty_Name" \
+	--stringparam 'PostalTradeAddress_CountryID'    "$PostalTradeAddress_CountryID" \
+	--stringparam 'BuyerTradeParty_Name'            "$BuyerTradeParty_Name" \
+	--stringparam 'TaxBasisTotalAmount'             "$TaxBasisTotalAmount" \
+	--stringparam 'TaxTotalAmount'                  "$TaxTotalAmount" \
+	--stringparam 'GrandTotalAmount'                "$GrandTotalAmount" \
+	--stringparam 'DuePayableAmount'                "$DuePayableAmount" \
 	\
 "$profile.xslt" "Beispiele/0. MINIMUM/MINIMUM_Rechnung/factur-x.xml"
